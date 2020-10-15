@@ -152,20 +152,20 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-2020GACTF-MISC wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-2020GACTF-MISC-wp" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/15/2020GACTF-MISC%20wp/">2020GACTF-MISC wp</a>
+      <a class="article-title" href="/2020/10/15/2020GACTF-MISC-wp/">2020GACTF-MISC-wp</a>
     </h1>
   
 
         
-        <a href="/2020/10/15/2020GACTF-MISC%20wp/" class="archive-article-date">
-  	<time datetime="2020-10-15T03:04:46.249Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
+        <a href="/2020/10/15/2020GACTF-MISC-wp/" class="archive-article-date">
+  	<time datetime="2020-10-15T07:14:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
 </a>
         
       </header>
@@ -174,30 +174,7 @@
       
         <h2 id="music"><a href="#music" class="headerlink" title="music"></a>music</h2><p>​    这题是比赛第一批放出来的题之一，但是直到比赛第一天当晚，比赛进行了十多个小时、官方放出3个hint还是没有人解出来。笔者原本只是抱着尝试一下的心态看看题目（因为其他题目确实不会），结果不小心拿了个一血。</p>
 <p>​    附件下载下来是一个.wav 文件</p>
-<p>​    根据官方提示：</p>
-<p>​    <img src="D:\360安全浏览器下载\谷歌下载\GACTF\music\11.jpg" alt="11"></p>
-<p>​    拖到 Adobe Audition 观察波形，也可以用Audacity打开。乍一看和普通音频的波形没什么区别，听了几遍也没有发现什么异常.</p>
-<img src="D:\360安全浏览器下载\谷歌下载\GACTF\music\12.jpg" alt="12" style="zoom:50%;" />
-
-<p>​    把波形放到最大，发现前奏部分左右声道的波形明显有区别：</p>
-<p>​    <img src="D:\360安全浏览器下载\谷歌下载\GACTF\music\13.jpg" alt="13"></p>
-<p>​    左声道高低两点位置相对固定，判断是二进制；初步猜测低点为 0，高点为 1。按照高点为 1，低点为 0 编码，直到这段异常的波形结束。</p>
-<p>​    <img src="D:\360安全浏览器下载\谷歌下载\GACTF\music\14.jpg" alt="14"></p>
-<p>011001110110000101100011011101000110011001111011001101100110010100110110</p>
-<p>011000010011011100110101001110000011100001100010001100010110001000110010</p>
-<p>001101010110010100110011011000010011010001100010011000100011000100111000</p>
-<p>001110000110000101100110001110010011100100110010001101010110001000110011</p>
-<p>001101000110001001111101</p>
-<p><img src="D:\360安全浏览器下载\谷歌下载\GACTF\music\15.jpg" alt="15"></p>
-<p>​    一共 312 位，可以被 8 整除，于是 8 位为一组：</p>
-<p>01100111 01100001 01100011 01110100 01100110 01111011 00110110 01100101</p>
-<p>00110110 01100001 00110111 00110101 00111000 00111000 01100010 00110001</p>
-<p>01100010 00110010 00110101 01100101 00110011 01100001 00110100 01100010</p>
-<p>01100010 00110001 00111000 00111000 01100001 01100110 00111001 00111001</p>
-<p>00110010 00110101 01100010 00110011 00110100 01100010 01111101</p>
-<p>使用在线二进制转字符串工具<a target="_blank" rel="noopener" href="https://www.duplichecker.com/binary-to-text.php">https://www.duplichecker.com/binary-to-text.php</a></p>
-<p>进行转换，得到 flag：gactf{6e6a7588b1b25e3a4bb188af9925b34b}</p>
-
+        
       
 
       
@@ -209,7 +186,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/15/2020GACTF-MISC%20wp/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/15/2020GACTF-MISC-wp/">展开全文 >></a>
         </p>
       
 
