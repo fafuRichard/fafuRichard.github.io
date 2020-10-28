@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020 | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="HTTP协议解析​        HTTP（HyperText Transfer Protocol）超文本传输协议，允许将HTML（超文本标记语言）文档从Web服务器传送到Web浏览器。 HTTP请求​        在浏览器地址栏输入URL并回车，就发起了一个HTTP请求. ​        URL（统一资源定位符）标准格式如下： ​        协议：&#x2F;&#x2F;服务器IP[:端口]&#x2F;路径&#x2F;[?查询">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2020/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/10/28/HTTP%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="HTTP协议解析​        HTTP（HyperText Transfer Protocol）超文本传输协议，允许将HTML（超文本标记语言）文档从Web服务器传送到Web浏览器。 HTTP请求​        在浏览器地址栏输入URL并回车，就发起了一个HTTP请求. ​        URL（统一资源定位符）标准格式如下： ​        协议：&#x2F;&#x2F;服务器IP[:端口]&#x2F;路径&#x2F;[?查询">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-10-28T14:19:30.925Z">
+<meta property="article:modified_time" content="2020-10-28T14:19:30.925Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,97 +154,176 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-HTTP请求流程学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="HTTP协议解析"><a href="#HTTP协议解析" class="headerlink" title="HTTP协议解析"></a>HTTP协议解析</h1><p>​        <strong>HTTP（HyperText Transfer Protocol）</strong>超文本传输协议，允许将HTML（超文本标记语言）文档从Web服务器传送到Web浏览器。</p>
+<h2 id="HTTP请求"><a href="#HTTP请求" class="headerlink" title="HTTP请求"></a>HTTP请求</h2><p>​        在浏览器地址栏输入URL并回车，就发起了一个HTTP请求.</p>
+<p>​        <strong>URL（统一资源定位符）</strong>标准格式如下：</p>
+<p>​        <em>协议：//服务器IP[:端口]/路径/[?查询]</em></p>
+<p>​        例如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:&#x2F;&#x2F;www.xxser.com&#x2F;post&#x2F;httpxieyi.html</span><br></pre></td></tr></table></figure>
+
+<p>​        此外，Linux系统下curl命令、Windows系统下curl.exe也可以发起HTTP请求.</p>
+<h2 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h2><p>​        HTTP是无状态协议，服务器与客户端之间不需要建立持久连接，HTTP请求只能由客户端发起，服务器不能主动向客户端发送数据.</p>
+<p>​        HTTP遵循请求（Request）/应答（Response）模型.</p>
+<h3 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h3><p>​    （1）GET</p>
+<p>​        GET方法用于获取请求页面的指定信息（实体格式）.例如，请求index.jsp，返回的不是index.jsp的源文件，而是经过解析后的HTML代码.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;index.php?id&#x3D;1 HTTP&#x2F;1.1</span><br><span class="line">HOST: www.xxser.com</span><br></pre></td></tr></table></figure>
+
+<p>​    （2）HEAD</p>
+<p>​        HEAD方法经常被用来测试超文本链接的有效性、可访问性和最近的改变。攻击者编写扫描工具时，常用此方法，因为只测试资源是否存在，而不用返回消息主题，所以速度一定是最快的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HEAD &#x2F;index.php HTTP&#x2F;1.1</span><br><span class="line"></span><br><span class="line">HOST: www.xxser.com</span><br></pre></td></tr></table></figure>
+
+<p>​    （3）POST</p>
+<p>​        POST方法也与GET类似，但POST有请求内容。POST最多用于向服务器发送大量的数据，例如上传文件、提交留言等。</p>
+<p>​        一个经典的HTTP POST请求如下：</p>
+<p>​        </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">POST     &#x2F;login.php HTTP&#x2F;1.1</span><br><span class="line">Host: www.xxser.com</span><br><span class="line">Content-Length: 26</span><br><span class="line">Accept: text&#x2F;html,application&#x2F;xhtml+xml,application&#x2F;xml;q&#x3D;0.9, *&#x2F;*;q&#x3D;0.8</span><br><span class="line">Origin: http:&#x2F;&#x2F;home.2cto.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows NT 6.1) AppleWebkit&#x2F;537.17 (KHTML, like Gecko)</span><br><span class="line">Chrome&#x2F;24.0.1312.57 Safari&#x2F;537.17 SE 2.X MetaSr 1.0</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Accept-Language: zh-CN,zh;q&#x3D;0.8</span><br><span class="line">Accept-Charset: GBK,utf-8;q&#x3D;0.7,*;q&#x3D;0.3</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">user&#x3D;admins&amp;pw&#x3D;123456789</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​        用POST方法向服务器请求login.php，并且传递参数user=admins&amp;pw=123456789。</p>
+<p>​    （4）PUT</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝咖啡<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/28/HTTP%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2020-10-28T14:19:30.925Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/28/HTTP%E8%AF%B7%E6%B1%82%E6%B5%81%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/15/2020GACTF-MISC-wp/" class="archive-article-date">
-  	<time datetime="2020-10-15T07:14:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-15</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/15/2020GACTF-MISC-wp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">2020GACTF-MISC-wp</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/15/2020GACTF-MISC-wp/">2020GACTF-MISC-wp</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/08/12/hello-world/" class="archive-article-date">
-  	<time datetime="2020-08-12T12:39:16.655Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/08/12/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -263,8 +346,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
