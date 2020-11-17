@@ -16,7 +16,7 @@
 <meta property="og:description" content="HTTP​        HTTP（HyperText Transfer Protocol）超文本传输协议，允许将HTML（超文本标记语言）文档从Web服务器传送到Web浏览器。 HTTP请求​        在浏览器地址栏输入URL并回车，就发起了一个HTTP请求. ​        URL（统一资源定位符）标准格式如下： ​        协议：&#x2F;&#x2F;服务器IP[:端口]&#x2F;路径&#x2F;[?查询] ​">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-18T03:14:27.000Z">
-<meta property="article:modified_time" content="2020-11-17T12:03:38.574Z">
+<meta property="article:modified_time" content="2020-11-17T12:18:34.494Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -213,6 +213,16 @@
 <p>​    （7）CONNECT</p>
 <p>​        此方法为了用于能动态切换到隧道的代理.</p>
 <p>​    （8）OPTIONS</p>
+<p>​        通过此方法，客户端可以在采取具体资源请求之前，决定对该资源采取何种必要措施，或者了解服务器的性能。</p>
+<h3 id="HTTP状态码"><a href="#HTTP状态码" class="headerlink" title="HTTP状态码"></a>HTTP状态码</h3><p>常见的HTTP状态码：</p>
+<p>200：客户端请求成功，是最常见的状态。</p>
+<p>302：重定向。</p>
+<p>404：请求资源不存在，是最常见的状态。</p>
+<p>400：客户端请求有语法错误，不能被服务器所理解。</p>
+<p>401：请求未经授权。</p>
+<p>403：服务器收到请求，但是拒绝提供服务。</p>
+<p>500：服务器内部错误，是最常见的状态。</p>
+<p>503：服务器当前不能处理客户端的请求，一段时间后可能恢复正常。</p>
 
       
 
